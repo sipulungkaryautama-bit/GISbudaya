@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Peta Interaktif - WebGIS Budaya</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Peta Interaktif Budaya</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Beranda</a>
+    <a href="peta.html">Peta Interaktif</a>
+    <a href="berita.html">Berita Budaya</a>
+    <a href="kalender.html">Kalender Acara</a>
+  </nav>
+
+  <div id="map"></div>
+
+  <footer>
+    &copy; 2025 WebGIS Budaya Sulawesi Selatan
+  </footer>
+
+  <script>
+    var map = L.map('map').setView([-5.1477, 119.4327], 8);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // Contoh marker
+    L.marker([-5.1477, 119.4327]).addTo(map)
+      .bindPopup("<b>Makassar</b><br/>Cagar Budaya Pantai Losari")
+      .openPopup();
+  </script>
+</body>
+</html>
